@@ -73,6 +73,23 @@
             <version>${spark.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-catalyst_2.10</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.spark-project.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>2.5.0-spark</version>
+        </dependency>
+
+
+        <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
             <version>${hadoop.client.version}</version>
@@ -80,7 +97,7 @@
         <dependency>
             <groupId>org.spark-project.akka</groupId>
             <artifactId>akka-remote_2.10</artifactId>
-            <version>2.2.3-shaded-protobuf</version>
+            <version>2.3.4-spark</version>
         </dependency>
         <dependency>
             <groupId>net.java.dev.jets3t</groupId>
@@ -162,11 +179,11 @@
             <artifactId>jetty-security</artifactId>
             <version>${jetty.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>${jetty.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.eclipse.jetty</groupId>-->
+            <!--<artifactId>jetty-server</artifactId>-->
+            <!--<version>${jetty.version}</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-util</artifactId>
@@ -303,7 +320,7 @@
                             !scala.quasiquotes.*,
                             scala.*;version="${scala.import.version}",
                             org.eclipse.jetty.plus.*;version="0.0.0",
-                            org.eclipse.jetty.server.*;version="0.0.0",
+                            <!--org.eclipse.jetty.server.*;version="0.0.0",-->
                             org.eclipse.jetty.util.*;version="0.0.0",
                             org.eclipse.jetty.security.*;version="0.0.0",
                             com.ning.compress.*;version="${compress.lzf.import.version}",
