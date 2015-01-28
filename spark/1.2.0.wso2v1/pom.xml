@@ -75,17 +75,17 @@
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-catalyst_2.10</artifactId>
-            <version>1.2.0</version>
+            <version>${spark.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-            <version>2.3.7</version>
+            <version>${groovy.version}</version>
         </dependency>
         <dependency>
             <groupId>org.spark-project.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>2.5.0-spark</version>
+            <version>${protobuf.version}</version>
         </dependency>
 
 
@@ -97,7 +97,7 @@
         <dependency>
             <groupId>org.spark-project.akka</groupId>
             <artifactId>akka-remote_2.10</artifactId>
-            <version>2.3.4-spark</version>
+            <version>${akka.version}</version>
         </dependency>
         <dependency>
             <groupId>net.java.dev.jets3t</groupId>
@@ -179,7 +179,7 @@
             <artifactId>jetty-security</artifactId>
             <version>${jetty.version}</version>
         </dependency>
-        <!--<dependency>-->
+        <!--<dependency>--> <!--commented out because of a runtime error in spark-->
             <!--<groupId>org.eclipse.jetty</groupId>-->
             <!--<artifactId>jetty-server</artifactId>-->
             <!--<version>${jetty.version}</version>-->
@@ -320,7 +320,7 @@
                             !scala.quasiquotes.*,
                             scala.*;version="${scala.import.version}",
                             org.eclipse.jetty.plus.*;version="0.0.0",
-                            <!--org.eclipse.jetty.server.*;version="0.0.0",-->
+                            org.eclipse.jetty.server.*;version="0.0.0",
                             org.eclipse.jetty.util.*;version="0.0.0",
                             org.eclipse.jetty.security.*;version="0.0.0",
                             com.ning.compress.*;version="${compress.lzf.import.version}",
@@ -366,8 +366,10 @@
         <mesos.version>0.18.1</mesos.version>
         <json4s.version>3.2.10</json4s.version>
         <pyrolite.version>2.0.1</pyrolite.version>
-        <akka.version>2.2.3-shaded-protobuf</akka.version>
+        <akka.version>2.3.4-spark</akka.version>
         <jblas.version>1.2.3</jblas.version>
+        <protobuf.version>2.5.0-spark</protobuf.version>
+        <groovy.version>2.3.7</groovy.version>
 
         <scala.version>2.10.4</scala.version>
         <scala.import.version>[2.10.4, 2.11.0)</scala.import.version>
