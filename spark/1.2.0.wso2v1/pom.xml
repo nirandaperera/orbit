@@ -179,20 +179,26 @@
             <artifactId>jetty-security</artifactId>
             <version>${jetty.version}</version>
         </dependency>
-        <!--<dependency>--> <!--commented out because of a runtime error in spark-->
-            <!--<groupId>org.eclipse.jetty</groupId>-->
-            <!--<artifactId>jetty-server</artifactId>-->
-            <!--<version>${jetty.version}</version>-->
-        <!--</dependency>-->
+       <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-util</artifactId>
             <version>${jetty.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.eclipse.jetty.orbit</groupId>
+            <artifactId>javax.servlet</artifactId>
+            <version>${jetty.servlet.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty</artifactId>
-            <version>${org.jboss.netty.version}</version>
+            <version>${io.netty.version}</version>
         </dependency>
         <dependency>
             <groupId>com.ning</groupId>
@@ -311,7 +317,7 @@
                             com.github.fommil.*,
                         </Private-Package>
                         <Import-Package>                           <!-- TODO Change import versions to version ranges -->
-                            org.jboss.netty.*;version="${org.jboss.netty.import.version}",
+                            org.jboss.netty.*;version="${io.netty.import.version}",
                             io.netty.*;version="${netty-all.import.version}",
                             !scala.tools.*,
                             !scala.reflect.api.*,
@@ -319,10 +325,11 @@
                             !scala.reflect.macros.*,
                             !scala.quasiquotes.*,
                             scala.*;version="${scala.import.version}",
-                            org.eclipse.jetty.plus.*;version="0.0.0",
-                            org.eclipse.jetty.server.*;version="0.0.0",
-                            org.eclipse.jetty.util.*;version="0.0.0",
-                            org.eclipse.jetty.security.*;version="0.0.0",
+                            org.eclipse.jetty.plus.*;version="${jetty.imp.pkg.version}",
+                            org.eclipse.jetty.server.*;version="${jetty.imp.pkg.version}",
+                            org.eclipse.jetty.util.*;version="${jetty.imp.pkg.version}",
+                            org.eclipse.jetty.security.*;version="${jetty.imp.pkg.version}",
+                            org.eclipse.jetty.orbit.javax.servlet.*;version="${jetty.servlet.import.version}",
                             com.ning.compress.*;version="${compress.lzf.import.version}",
                             com.codahale.metrics.*;version="${codahale.metrics.import.version}",
                             com.fasterxml.jackson.*;version="${jackson.import.version}",
@@ -331,6 +338,7 @@
                             org.apache.commons.lang3.*;version="${commons-lang3.import.version}",
                             org.xerial.snappy.*;version="${snappy.import.version}",
                             org.objectweb.asm.*;version="${asm.import.version}",
+                            org.spark-project.*;version="${protobuf.import.version}",
                             *;resolution:=optional
                         </Import-Package>
                         <Include-Resource>
@@ -369,6 +377,7 @@
         <akka.version>2.3.4-spark</akka.version>
         <jblas.version>1.2.3</jblas.version>
         <protobuf.version>2.5.0-spark</protobuf.version>
+        <protobuf.import.version>[2.5.0, 2.6.0)</protobuf.import.version>
         <groovy.version>2.3.7</groovy.version>
 
         <scala.version>2.10.4</scala.version>
@@ -378,7 +387,7 @@
         <codahale.metrics.version>3.0.0</codahale.metrics.version>
         <codahale.metrics.import.version>[3.0.0, 3.0.1)</codahale.metrics.import.version>
         <jackson.version>2.3.1</jackson.version>
-        <jackson.import.version>[2.3.1, 2.3.2)</jackson.import.version>
+        <jackson.import.version>[2.3.1, 2.3.3)</jackson.import.version>
         <snappy.version>1.0.5.3</snappy.version>
         <snappy.import.version>[1.0.5.3, 1.0.5.4)</snappy.import.version>
         <commons-math3.version>3.3</commons-math3.version>
@@ -392,10 +401,15 @@
         <netty-all.version>4.0.23.wso2v1</netty-all.version>
         <netty-all.import.version>[4.0.23.wso2v1, 4.0.24.Final)</netty-all.import.version>
         <jetty.version>8.1.14.v20131031</jetty.version>
-        <org.jboss.netty.version>3.6.6.Final</org.jboss.netty.version>
-        <org.jboss.netty.import.version>[3.6.6.Final, 3.6.7.Final)</org.jboss.netty.import.version>
+        <jetty.imp.pkg.version>[8.1.14, 8.1.15)</jetty.imp.pkg.version>
+        <jetty.servlet.version>3.0.0.v201112011016</jetty.servlet.version>
+        <jetty.servlet.import.version>[3.0.0.v201112011016, 3.0.1)</jetty.servlet.import.version>
+        <org.jboss.netty.version>3.2.10.Final</org.jboss.netty.version>
+        <org.jboss.netty.import.version>[3.2.10, 3.6.7.Final)</org.jboss.netty.import.version>
         <com.github.fommil.netlib.version>1.1.2</com.github.fommil.netlib.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jackson-annotations.version>2.3.0</jackson-annotations.version>
+        <io.netty.version>3.8.0.Final</io.netty.version>
+        <io.netty.import.version>[3.8.0, 3.9.0)</io.netty.import.version>
     </properties>
 </project>
